@@ -1,0 +1,62 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
+
+public class Validation{
+
+        boolean m = false;
+        boolean emailValidation(String email) {
+            m = Pattern.matches("[a-zA-Z0-9@a-z]{1,30}[.a-z]{1,8}", email);
+            return m;
+        }
+
+        boolean dateValidation(LocalDate date) {
+            String s = date.format(DateTimeFormatter.ofPattern("DD/MM/YYYY"));
+            m = Pattern.matches("[\\d/]{3}[\\d/]{3}[\\d]{4}", s);
+            return m;
+        }
+
+        boolean nameValidation(String name) {
+            m = Pattern.matches("[[A-Z]{1}[a-z]{1,10}[\\s]{1}]+", name);
+            return m;
+        }
+
+        boolean numberValidation(String number) {
+            m = Pattern.matches("[0-9]{10}", number);
+            return m;
+        }
+
+        public boolean vadilationLength(Number b){
+            int min = 100000, max = 250000000;
+            boolean f = false;
+            if(b instanceof Integer){
+                Integer i = (Integer)b;
+                if(i >= min && i <= max){
+                    f = true;
+                    return f;
+                }
+                else
+                    return f;
+            }
+            if(b instanceof Float){
+                Float i = (Float)b;
+                if(i >= min && i <= max){
+                    f = true;
+                    return f;
+                }
+                else
+                    return f;
+            }
+            if(b instanceof Double){
+                Double i = (Double)b;
+                if(i >= min && i <= max)
+                    f = true;
+            }
+            if(b instanceof Long){
+                Long i = (Long)b;
+                if(i >= min && i <= max)
+                    f = true;
+            }
+            return f;
+        }
+}
